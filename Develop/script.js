@@ -1,9 +1,6 @@
 // Assignment code here
 var options = [];
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
 function generatePassword() {
   
   var userInput = window.prompt ("Enter Password Length (between 8-128 characters): ");
@@ -27,20 +24,30 @@ function generatePassword() {
   if (numeric == true) {
     var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
     options.push(...numeric);
-
+  }
     var otherCharacters = window.confirm ("Do you want to include special characters? ");
     if (otherCharacters == true) {
-      var otherCharacters = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", ":", ";", "'", "<", ",", ">", ".", "?", "/"];
-      options.push(...otherCharacters);
+    var otherCharacters = ["`", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", ":", ";", "'", "<", ",", ">", ".", "?", "/"];
+    options.push(...otherCharacters);
     }
-  }
+  
+  var finalPassword = random(userInput);
+  return finalPassword;
 }
 
-function random () {
+function random (userInput) {
+  var passwordValue;
   for (i=0; i < userInput; i++) {
-    
+    var randomValue = math.floor(math.random() * options.length);
+    passwordValue = passwordValue.concat(options[random]);
   }
+  return passwordValue;
 }
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
