@@ -36,12 +36,12 @@ function generatePassword() {
 }
 
 function random (userInput) {
-  var passwordValue;
+  var passwordValue = [];
   for (i=0; i < userInput; i++) {
-    var randomValue = math.floor(math.random() * options.length);
-    passwordValue = passwordValue.concat(options[random]);
+    var randomValue = Math.floor(Math.random() * options.length);
+    passwordValue = passwordValue.concat(options[randomValue]);
   }
-  return passwordValue;
+  return passwordValue.join("");
 }
 
 // Get references to the #generate element
